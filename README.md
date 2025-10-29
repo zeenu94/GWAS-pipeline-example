@@ -18,7 +18,7 @@ It includes shell scripts for variant-level QC, LD pruning, and data preparation
 
 ---
 
-## 🧬 GENESIS Mixed-Model Workflow
+## 🧬 GENESIS Workflow
 
 | Step | Script | Purpose |
 |------|---------|----------|
