@@ -1,0 +1,33 @@
+library(SeqVarTools)
+library(SNPRelate)
+library(GWASTools)
+library(GENESIS)
+library(ggplot2)
+library(dplyr)
+library(RColorBrewer)
+library(GGally)
+library(qqman)
+library(biomaRt)
+library(GenomicRanges)
+library(tidyverse)
+#install.packages("BiocManager")
+#BiocManager::install("UW-GAC/analysis_pipeline/TopmedPipeline/")
+library(TopmedPipeline)
+library(BiocParallel)
+library(grid)
+library(gridGraphics)
+
+assoc <- read.delim("assoc.csv")
+
+png("MANHATTAN.png",width = 120, height = 120, units="mm", res=300)
+manhattan(assoc, chr="CHROM", bp="POS", snp="GENE", p="pvalue",col = c("blue4", "orange3"),genomewideline = -log10(5e-08), annotatePval = -log10(1e-04))
+dev.off()
+
+pvalue <- assoc$pvalue
+observed_check <- qchisq(pvalue,1,lower.tail=FALSE)
+lambda <- median(observed_check) / qchisq(0.5,1)
+lambda <- round(lambda,digits=3)
+
+png("QQPlot.png",width = 120, height = 120, units="mm",res=300)
+qq(pvalue,main = paste("Lambda = ",lambda,sep=""), xlim = c(0, 10), ylim = c(0, 10))
+dev.off()
