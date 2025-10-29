@@ -20,8 +20,8 @@ module load plink/1.90b6.4
 chr=$1
 out1=chr${chr}_step0
 out2=chr${chr}_step1
-out3=chr${chr}_step3.ID
-out4=chr${chr}_step3
+out3=chr${chr}_step2.ID
+out4=chr${chr}_step2
 
 awk '{print $1":"$2":"$4":"$5}' $out1 | sed 's/chr//g' > $out3
 mv ${out2}.bim ${out2}.bim.ori
