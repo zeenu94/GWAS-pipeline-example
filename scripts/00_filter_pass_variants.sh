@@ -1,7 +1,7 @@
 #!/bin/bash -l
 # Filter VCF variants to include only PASS entries
 # Author: Zainab Khurshid
-# Date: 2025-10
+# Date: 2022
 # Usage: qsub 00_filter_pass_variants.sh [chromosome_number]
 #
 # Description:
