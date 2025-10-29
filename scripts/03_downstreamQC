@@ -1,0 +1,10 @@
+#!/bin/bash -l
+module load bcftools/1.12
+module load plink/1.90b6.4
+#$ -m ea
+#$ -M zainabk@bu.edu
+chr=$1
+out1=chr${chr}_step2
+out2=chr${chr}_step3_downstream
+#pruning, select high callrate variants for downstream analysis 
+plink --bfile ${out1} --geno 0.2   --mac 20  --hwe 1e-4 -make-bed --out ${out2}
