@@ -14,8 +14,8 @@ module load plink2/2.00a2.3
 
 # Input chromosome argument
 chr=$1
-vcf=chr${chr}_20K_36K_overlap_merge.vcf.gz
-out=chr${chr}_20K_36K
+vcf=chr${chr}.vcf.gz
+out=chr${chr}_step1
 
 # Convert VCF to PLINK format
 plink2 \
