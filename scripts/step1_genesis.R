@@ -8,7 +8,7 @@ bed.fn <- "step5.bed"
 bim.fn <- "step5.bim"
 fam.fn <- "step5.fam"
 
-gds <- "step5.gds"
+gds <- "genesis.gds"
 
 
 snpgdsBED2GDS(bed.fn, fam.fn, bim.fn, gds)
