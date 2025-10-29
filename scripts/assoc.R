@@ -1,0 +1,18 @@
+library(SeqArray)
+library(SeqVarTools)
+library(SNPRelate)
+library(GWASTools)
+library(GENESIS)
+library(ggplot2)
+library(dplyr)
+library(RColorBrewer)
+library(GGally)
+library(qqman)
+library(biomaRt)
+geno <- GdsGenotypeReader(filename = "genesis.downstream.gds")
+genoData <- GenotypeData(geno)
+
+nullmod <- readRDS("nullmod")
+genoIterator <- GenotypeBlockIterator(genoData, snpBlock=5000)
+assoc <- assocTestSingle(genoIterator, null.model = nullmod, test = "Score")
+saveRDS(assoc , "assoc"
